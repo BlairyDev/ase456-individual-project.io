@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Progress-Reports on Movie App</title>
+    <link>http://localhost:1313/progress-reports/</link>
+    <description>Recent content in Progress-Reports on Movie App</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/progress-reports/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Calendar Plan</title>
+      <link>http://localhost:1313/progress-reports/calendar-plan/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/progress-reports/calendar-plan/</guid>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;Feature # 1  Users can see a list of series (Deadline: 09/26)&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Requirement # 1&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Display list of recent series in a Home Page so users will be able to select a series&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Plan:  Call the MangaDex API to get the most recent list of series&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Feature # 2  Users are able to select a manga/manwha/manhua series and select a chapter to read(Deadline: 10/03)&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Requirement # 1&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Show details of a series&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Requirement # 2&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>HW2 – Grading Rubric (Team Project)</title>
+      <link>http://localhost:1313/progress-reports/report_week1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/progress-reports/report_week1/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
