@@ -46,7 +46,7 @@ Welcome to **Manga Reader App**! This application allows you to discover, read, 
 ### First Launch
 When you first open the app, you'll be greeted with the Home Page displaying a list of recently updated manga series.
 
-![App Launch Screen - Placeholder](./images/home.jpeg)
+![App Launch Screen - Placeholder](images/home.jpeg)
 *[IMAGE: Screenshot of the app's home screen showing the list of recent manga series]*
 
 ---
@@ -81,7 +81,7 @@ The Home Page displays a curated list of recently updated manga series.
    - Cover art
    - Series title
 
-![Home Page with Recent Series - Placeholder](./images/home.jpeg)
+![Home Page with Recent Series - Placeholder](/images/home.jpeg)
 *[IMAGE: Screenshot showing the scrollable list of manga series on the home page]*
 
 **Tip:** Pull down on the screen to refresh the list and see the latest updates!
@@ -153,7 +153,7 @@ Find specific manga titles quickly using the search feature.
 4. Browse through the search results
 5. Tap any result to view its details
 
-![Search Page - Placeholder](./images/search.jpeg)
+![Search Page - Placeholder](/images/search.jpeg)
 *[IMAGE: Screenshot of the search page with search bar and placeholder text]*
 
 
@@ -176,7 +176,7 @@ Save your favorite manga series to your personal library for quick access.
 3. A confirmation message will appear
 4. The series is now saved to your local device
 
-![Add to Library Button - Placeholder](/static/images/)
+![Add to Library Button - Placeholder](/images/library.jpeg)
 *[IMAGE: Screenshot highlighting the "Add to Library" button on a series detail page]*
 
 **What Gets Saved:**
@@ -195,7 +195,7 @@ Save your favorite manga series to your personal library for quick access.
 2. View all your saved manga series
 3. Tap any series to view its details and chapters
 
-![Library Page - Placeholder](images/library.jpeg)
+![Library Page - Placeholder](/images/library.jpeg)
 *[IMAGE: Screenshot of the library page showing saved manga series in a grid/list format]*
 
 #### Removing Series from Your Library
@@ -206,7 +206,7 @@ Save your favorite manga series to your personal library for quick access.
 3. Tap the **"Remove"** or **Delete** option
 4. Confirm the removal
 
-![Remove from Library - Placeholder](https://blairydev.github.io/ase456-individual-project.io/images/detail-added.jpeg)
+![Remove from Library - Placeholder](/images/detail-added.jpeg)
 *[IMAGE: Screenshot showing the remove/delete option for a library item]*
 
 #### Exporting Your Library
@@ -219,7 +219,7 @@ Save your library data to a file for backup or transfer.
 3. The app will save your library to your device's Downloads folder as `manga_export.json`
 4. Use this file to backup your collection
 
-![Export Library Option - Placeholder](https://blairydev.github.io/ase456-individual-project.io/images/settings.jpeg)
+![Export Library Option - Placeholder](/images/settings.jpeg)
 file will be found on your phone Downloads folder
 
 #### Importing Your Library
@@ -232,7 +232,7 @@ Restore your library from a previously exported file.
 3. Select the `.json` file from your device
 4. The app will import all series that aren't already in your library
 
-![Import Library Option - Placeholder](https://blairydev.github.io/ase456-individual-project.io/images/settings.jpeg)
+![Import Library Option - Placeholder](/images/settings.jpeg)
 *[IMAGE: Screenshot showing the import library file picker]*
 
 **Note:** Importing will not create duplicates. Only new series will be added.
