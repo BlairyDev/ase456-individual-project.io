@@ -15,11 +15,11 @@
       <description>&lt;h1 id=&#34;how-to-run-the-app&#34;&gt;How to Run the app&lt;/h1&gt;</description>
     </item>
     <item>
-      <title>home</title>
-      <link>http://localhost:1313/documentation/architecture/</link>
+      <title>Documentation</title>
+      <link>http://localhost:1313/documentation/home/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/documentation/architecture/</guid>
-      <description></description>
+      <guid>http://localhost:1313/documentation/home/</guid>
+      <description>&lt;h1 id=&#34;-manga-reader-app--architecture--feature-documentation&#34;&gt;📚 Manga Reader App — Architecture &amp;amp; Feature Documentation&lt;/h1&gt;&#xA;&lt;p&gt;This document describes the high-level architecture, feature behavior, data flow, and API usage for the &lt;strong&gt;Manga Reader App&lt;/strong&gt;, built with &lt;strong&gt;Flutter&lt;/strong&gt; and powered by the &lt;strong&gt;MangaDex API&lt;/strong&gt;.&lt;br&gt;&#xA;It serves as a developer guide and reference for future maintenance and extension.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h1 id=&#34;-1-system-overview&#34;&gt;🏛️ 1. System Overview&lt;/h1&gt;&#xA;&lt;p&gt;The Manga Reader App is a Flutter-based mobile application that allows users to:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Browse recent manga/manhwa/manhua series&lt;/li&gt;&#xA;&lt;li&gt;View detailed information about a selected series&lt;/li&gt;&#xA;&lt;li&gt;Read chapters (vertical or horizontal mode)&lt;/li&gt;&#xA;&lt;li&gt;Search for titles&lt;/li&gt;&#xA;&lt;li&gt;Save series locally in a library (SQLite)&lt;/li&gt;&#xA;&lt;li&gt;Manage app settings, theme, backup, and data export/import&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The backend data is retrieved via the &lt;strong&gt;MangaDex REST API&lt;/strong&gt;.&lt;br&gt;&#xA;Local persistence uses &lt;strong&gt;SQLite&lt;/strong&gt; (via &lt;code&gt;sqflite&lt;/code&gt; package).&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

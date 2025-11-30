@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Api Docs | Movie App</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Manga Reader API &amp; Database Documentation
+Table of Contents
+
+Database Schema
+Database Service API
+MangaDex API Service
+Data Models
+
+
+Database Schema
+manga Table
+Stores user&rsquo;s manga library collection.
+
+  
+      
+          Column
+          Type
+          Constraints
+          Description
+      
+  
+  
+      
+          id
+          INTEGER
+          PRIMARY KEY AUTOINCREMENT
+          Auto-incrementing unique identifier
+      
+      
+          mangaId
+          TEXT
+          -
+          MangaDex manga identifier
+      
+      
+          title
+          TEXT
+          -
+          Manga title
+      
+      
+          description
+          TEXT
+          -
+          Manga description/synopsis
+      
+      
+          authors
+          TEXT
+          -
+          JSON-encoded list of author names
+      
+      
+          artists
+          TEXT
+          -
+          JSON-encoded list of artist names
+      
+      
+          tags
+          TEXT
+          -
+          JSON-encoded list of tags
+      
+      
+          coverArtUrl
+          TEXT
+          -
+          URL to cover art image
+      
+      
+          status
+          TEXT
+          -
+          Publication status (ongoing, completed, etc.)
+      
+  
+
+Note: authors, artists, and tags columns store JSON-encoded string arrays.">
+    <meta name="generator" content="Hugo 0.148.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/api-docs/api-docs/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/api-docs/api-docs/">
+  <meta property="og:site_name" content="Movie App">
+  <meta property="og:title" content="Api Docs">
+  <meta property="og:description" content="Manga Reader API &amp; Database Documentation Table of Contents Database Schema Database Service API MangaDex API Service Data Models Database Schema manga Table Stores user’s manga library collection.
+Column Type Constraints Description id INTEGER PRIMARY KEY AUTOINCREMENT Auto-incrementing unique identifier mangaId TEXT - MangaDex manga identifier title TEXT - Manga title description TEXT - Manga description/synopsis authors TEXT - JSON-encoded list of author names artists TEXT - JSON-encoded list of artist names tags TEXT - JSON-encoded list of tags coverArtUrl TEXT - URL to cover art image status TEXT - Publication status (ongoing, completed, etc.) Note: authors, artists, and tags columns store JSON-encoded string arrays.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="api-docs">
+    <meta property="article:published_time" content="2025-11-29T19:28:15-05:00">
+    <meta property="article:modified_time" content="2025-11-29T19:28:15-05:00">
+
+  <meta itemprop="name" content="Api Docs">
+  <meta itemprop="description" content="Manga Reader API &amp; Database Documentation Table of Contents Database Schema Database Service API MangaDex API Service Data Models Database Schema manga Table Stores user’s manga library collection.
+Column Type Constraints Description id INTEGER PRIMARY KEY AUTOINCREMENT Auto-incrementing unique identifier mangaId TEXT - MangaDex manga identifier title TEXT - Manga title description TEXT - Manga description/synopsis authors TEXT - JSON-encoded list of author names artists TEXT - JSON-encoded list of artist names tags TEXT - JSON-encoded list of tags coverArtUrl TEXT - URL to cover art image status TEXT - Publication status (ongoing, completed, etc.) Note: authors, artists, and tags columns store JSON-encoded string arrays.">
+  <meta itemprop="datePublished" content="2025-11-29T19:28:15-05:00">
+  <meta itemprop="dateModified" content="2025-11-29T19:28:15-05:00">
+  <meta itemprop="wordCount" content="899">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Api Docs">
+  <meta name="twitter:description" content="Manga Reader API &amp; Database Documentation Table of Contents Database Schema Database Service API MangaDex API Service Data Models Database Schema manga Table Stores user’s manga library collection.
+Column Type Constraints Description id INTEGER PRIMARY KEY AUTOINCREMENT Auto-incrementing unique identifier mangaId TEXT - MangaDex manga identifier title TEXT - Manga title description TEXT - Manga description/synopsis authors TEXT - JSON-encoded list of author names artists TEXT - JSON-encoded list of artist names tags TEXT - JSON-encoded list of tags coverArtUrl TEXT - URL to cover art image status TEXT - Publication status (ongoing, completed, etc.) Note: authors, artists, and tags columns store JSON-encoded string arrays.">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Movie App
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/progress-reports/calendar-plan/" title="Calendar Plan page">
+              Calendar Plan
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/documentation/home/" title="Documentation page">
+              Documentation
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/user-manul/user-manual/" title="User Manual page">
+              User Manual
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  
+  <article class="flex-l mw8 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Api-Docs
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Api Docs</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2025-11-29T19:28:15-05:00">November 29, 2025</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="manga-reader-api--database-documentation">Manga Reader API &amp; Database Documentation</h1>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#database-schema">Database Schema</a></li>
+<li><a href="#database-service-api">Database Service API</a></li>
+<li><a href="#mangadex-api-service">MangaDex API Service</a></li>
+<li><a href="#data-models">Data Models</a></li>
+</ol>
+<hr>
+<h2 id="database-schema">Database Schema</h2>
+<h3 id="manga-table">manga Table</h3>
+<p>Stores user&rsquo;s manga library collection.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Column</th>
+          <th>Type</th>
+          <th>Constraints</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>id</td>
+          <td>INTEGER</td>
+          <td>PRIMARY KEY AUTOINCREMENT</td>
+          <td>Auto-incrementing unique identifier</td>
+      </tr>
+      <tr>
+          <td>mangaId</td>
+          <td>TEXT</td>
+          <td>-</td>
+          <td>MangaDex manga identifier</td>
+      </tr>
+      <tr>
+          <td>title</td>
+          <td>TEXT</td>
+          <td>-</td>
+          <td>Manga title</td>
+      </tr>
+      <tr>
+          <td>description</td>
+          <td>TEXT</td>
+          <td>-</td>
+          <td>Manga description/synopsis</td>
+      </tr>
+      <tr>
+          <td>authors</td>
+          <td>TEXT</td>
+          <td>-</td>
+          <td>JSON-encoded list of author names</td>
+      </tr>
+      <tr>
+          <td>artists</td>
+          <td>TEXT</td>
+          <td>-</td>
+          <td>JSON-encoded list of artist names</td>
+      </tr>
+      <tr>
+          <td>tags</td>
+          <td>TEXT</td>
+          <td>-</td>
+          <td>JSON-encoded list of tags</td>
+      </tr>
+      <tr>
+          <td>coverArtUrl</td>
+          <td>TEXT</td>
+          <td>-</td>
+          <td>URL to cover art image</td>
+      </tr>
+      <tr>
+          <td>status</td>
+          <td>TEXT</td>
+          <td>-</td>
+          <td>Publication status (ongoing, completed, etc.)</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Note</strong>: <code>authors</code>, <code>artists</code>, and <code>tags</code> columns store JSON-encoded string arrays.</p>
+<hr>
+<h2 id="database-service-api">Database Service API</h2>
+<h3 id="singleton-instance">Singleton Instance</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span>DatabaseService.instance
+</span></span></code></pre></div><p>Access the singleton instance of the database service.</p>
+<h3 id="methods">Methods</h3>
+<h4 id="futuredatabase-get-db"><code>Future&lt;Database&gt; get db</code></h4>
+<p>Returns the database instance, initializing it if necessary.</p>
+<p><strong>Returns</strong>: <code>Future&lt;Database&gt;</code></p>
+<hr>
+<h4 id="futuredatabase-initdb"><code>Future&lt;Database&gt; initDb()</code></h4>
+<p>Initializes the SQLite database at the standard database path.</p>
+<p><strong>Returns</strong>: <code>Future&lt;Database&gt;</code> - Initialized database instance</p>
+<p><strong>Database Location</strong>: <code>{databasesPath}/mangareader.db</code></p>
+<hr>
+<h4 id="futureint-insertmangamanga-manga"><code>Future&lt;int&gt; insertManga(Manga manga)</code></h4>
+<p>Inserts a new manga entry into the library.</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>manga</code> (Manga): Manga object to insert</li>
+</ul>
+<p><strong>Returns</strong>: <code>Future&lt;int&gt;</code> - Row ID of inserted manga</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#66d9ef">final</span> manga <span style="color:#f92672">=</span> Manga(
+</span></span><span style="display:flex;"><span>  mangaId: <span style="color:#e6db74">&#39;abc123&#39;</span>,
+</span></span><span style="display:flex;"><span>  title: <span style="color:#e6db74">&#39;Example Manga&#39;</span>,
+</span></span><span style="display:flex;"><span>  description: <span style="color:#e6db74">&#39;A great story&#39;</span>,
+</span></span><span style="display:flex;"><span>  authors: [<span style="color:#e6db74">&#39;Author Name&#39;</span>],
+</span></span><span style="display:flex;"><span>  artists: [<span style="color:#e6db74">&#39;Artist Name&#39;</span>],
+</span></span><span style="display:flex;"><span>  tags: [<span style="color:#e6db74">&#39;Action&#39;</span>, <span style="color:#e6db74">&#39;Adventure&#39;</span>],
+</span></span><span style="display:flex;"><span>  coverArtUrl: <span style="color:#e6db74">&#39;https://example.com/cover.jpg&#39;</span>,
+</span></span><span style="display:flex;"><span>  status: <span style="color:#e6db74">&#39;ongoing&#39;</span>
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> rowId <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> DatabaseService.instance.insertManga(manga);
+</span></span></code></pre></div><hr>
+<h4 id="futurelistmapstring-dynamic-queryallmangas"><code>Future&lt;List&lt;Map&lt;String, dynamic&gt;&gt;&gt; queryAllMangas()</code></h4>
+<p>Retrieves all manga entries from the library.</p>
+<p><strong>Returns</strong>: <code>Future&lt;List&lt;Map&lt;String, dynamic&gt;&gt;&gt;</code> - List of manga records</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span>List<span style="color:#f92672">&lt;</span>Map<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">String</span>, <span style="color:#66d9ef">dynamic</span><span style="color:#f92672">&gt;&gt;</span> <span style="color:#66d9ef">library</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> DatabaseService.instance.queryAllMangas();
+</span></span></code></pre></div><hr>
+<h4 id="futurebool-checkinlibrarystring-mangaid"><code>Future&lt;bool&gt; checkInLibrary(String mangaId)</code></h4>
+<p>Checks if a manga exists in the user&rsquo;s library.</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>mangaId</code> (String): MangaDex manga identifier</li>
+</ul>
+<p><strong>Returns</strong>: <code>Future&lt;bool&gt;</code> - <code>true</code> if manga exists, <code>false</code> otherwise</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> exists <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> DatabaseService.instance.checkInLibrary(<span style="color:#e6db74">&#39;abc123&#39;</span>);
+</span></span></code></pre></div><hr>
+<h4 id="futureint-removemangastring-mangaid"><code>Future&lt;int&gt; removeManga(String mangaId)</code></h4>
+<p>Removes a manga from the library by its manga ID.</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>mangaId</code> (String): MangaDex manga identifier</li>
+</ul>
+<p><strong>Returns</strong>: <code>Future&lt;int&gt;</code> - Number of rows deleted (0 or 1)</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> deleted <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> DatabaseService.instance.removeManga(<span style="color:#e6db74">&#39;abc123&#39;</span>);
+</span></span></code></pre></div><hr>
+<h4 id="futurebool-exportdatabase"><code>Future&lt;bool&gt; exportDatabase()</code></h4>
+<p>Exports the entire manga library to a JSON file in the downloads directory.</p>
+<p><strong>Returns</strong>: <code>Future&lt;bool&gt;</code> - <code>true</code> if export successful, <code>false</code> otherwise</p>
+<p><strong>Output Location</strong>: <code>{downloadsPath}/manga_export.json</code> (or <code>manga_export(n).json</code> if file exists)</p>
+<p><strong>File Format</strong>: JSON array of manga objects</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> success <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> DatabaseService.instance.exportDatabase();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (success) {
+</span></span><span style="display:flex;"><span>  print(<span style="color:#e6db74">&#39;Library exported successfully&#39;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h4 id="futurestring-getdatabasepathstring-databasename"><code>Future&lt;String&gt; getDatabasePath(String databaseName)</code></h4>
+<p>Returns the full path for a database file.</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>databaseName</code> (String): Name of the database file</li>
+</ul>
+<p><strong>Returns</strong>: <code>Future&lt;String&gt;</code> - Full path to database file</p>
+<hr>
+<h4 id="futurebool-importdatabase"><code>Future&lt;bool&gt; importDatabase()</code></h4>
+<p>Imports manga library from a JSON file selected by the user.</p>
+<p><strong>Returns</strong>: <code>Future&lt;bool&gt;</code> - <code>true</code> if import successful, <code>false</code> otherwise</p>
+<p><strong>File Format</strong>: JSON array with manga objects containing:</p>
+<ul>
+<li><code>mangaId</code>, <code>title</code>, <code>description</code>, <code>coverArtUrl</code>, <code>status</code></li>
+<li><code>authors</code>, <code>artists</code>, <code>tags</code> (JSON-encoded string arrays)</li>
+</ul>
+<p><strong>Behavior</strong>: Only imports manga that don&rsquo;t already exist in the library (checks via <code>checkInLibrary</code>)</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> success <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> DatabaseService.instance.importDatabase();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (success) {
+</span></span><span style="display:flex;"><span>  print(<span style="color:#e6db74">&#39;Library imported successfully&#39;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h2 id="mangadex-api-service">MangaDex API Service</h2>
+<p>Base URL: <code>https://api.mangadex.org</code></p>
+<h3 id="methods-1">Methods</h3>
+<h4 id="futuremapstring-dynamic-runapistring-api"><code>Future&lt;Map&lt;String, dynamic&gt;&gt; runAPI(String API)</code></h4>
+<p>Generic API request handler.</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>API</code> (String): Full API endpoint URL</li>
+</ul>
+<p><strong>Returns</strong>: <code>Future&lt;Map&lt;String, dynamic&gt;&gt;</code> - Parsed JSON response</p>
+<p><strong>Throws</strong>: <code>Exception</code> if request fails (status code != 200)</p>
+<hr>
+<h4 id="futuremapstring-dynamic-fetchmangaseriesint-offset"><code>Future&lt;Map&lt;String, dynamic&gt;&gt; fetchMangaSeries(int offset)</code></h4>
+<p>Fetches a paginated list of manga series ordered by latest uploaded chapter.</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>offset</code> (int): Pagination offset (increments of 6)</li>
+</ul>
+<p><strong>Returns</strong>: <code>Future&lt;Map&lt;String, dynamic&gt;&gt;</code> - MangaDex API response</p>
+<p><strong>API Endpoint</strong>: <code>GET /manga</code></p>
+<p><strong>Query Parameters</strong>:</p>
+<ul>
+<li><code>limit</code>: 6</li>
+<li><code>offset</code>: {offset}</li>
+<li><code>includedTagsMode</code>: AND</li>
+<li><code>excludedTagsMode</code>: OR</li>
+<li><code>contentRating[]</code>: safe</li>
+<li><code>order[latestUploadedChapter]</code>: desc</li>
+<li><code>includes[]</code>: artist, author, cover_art</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> response <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> MangadexApiService().fetchMangaSeries(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Fetches first 6 manga series
+</span></span></span></code></pre></div><hr>
+<h4 id="futuremapstring-dynamic-fetchmangachaptersstring-mangaid"><code>Future&lt;Map&lt;String, dynamic&gt;&gt; fetchMangaChapters(String mangaId)</code></h4>
+<p>Fetches aggregated chapter data for a specific manga.</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>mangaId</code> (String): MangaDex manga identifier</li>
+</ul>
+<p><strong>Returns</strong>: <code>Future&lt;Map&lt;String, dynamic&gt;&gt;</code> - Chapter aggregation data</p>
+<p><strong>API Endpoint</strong>: <code>GET /manga/{id}/aggregate</code></p>
+<p><strong>Query Parameters</strong>:</p>
+<ul>
+<li><code>translatedLanguage[]</code>: en</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> chapters <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> MangadexApiService().fetchMangaChapters(<span style="color:#e6db74">&#39;abc123&#39;</span>);
+</span></span></code></pre></div><hr>
+<h4 id="futuremapstring-dynamic-fetchchapterimageliststring-chapterid"><code>Future&lt;Map&lt;String, dynamic&gt;&gt; fetchChapterImageList(String chapterId)</code></h4>
+<p>Fetches the image URLs for a specific chapter.</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>chapterId</code> (String): MangaDex chapter identifier</li>
+</ul>
+<p><strong>Returns</strong>: <code>Future&lt;Map&lt;String, dynamic&gt;&gt;</code> - Chapter image server data</p>
+<p><strong>API Endpoint</strong>: <code>GET /at-home/server/{id}</code></p>
+<p><strong>Example</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> imageData <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> MangadexApiService().fetchChapterImageList(<span style="color:#e6db74">&#39;chapter123&#39;</span>);
+</span></span></code></pre></div><hr>
+<h4 id="futuremapstring-dynamic-fetchsearchmangastring-title-int-offset"><code>Future&lt;Map&lt;String, dynamic&gt;&gt; fetchSearchManga(String title, int offset)</code></h4>
+<p>Searches for manga by title with pagination.</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>title</code> (String): Search query (automatically URI-encoded)</li>
+<li><code>offset</code> (int): Pagination offset (increments of 6)</li>
+</ul>
+<p><strong>Returns</strong>: <code>Future&lt;Map&lt;String, dynamic&gt;&gt;</code> - Search results</p>
+<p><strong>API Endpoint</strong>: <code>GET /manga</code></p>
+<p><strong>Query Parameters</strong>:</p>
+<ul>
+<li><code>limit</code>: 6</li>
+<li><code>offset</code>: {offset}</li>
+<li><code>title</code>: {encoded title}</li>
+<li><code>contentRating[]</code>: safe, suggestive, erotica</li>
+<li><code>order[latestUploadedChapter]</code>: desc</li>
+<li><code>includes[]</code>: artist, author, cover_art</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> results <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> MangadexApiService().fetchSearchManga(<span style="color:#e6db74">&#39;One Piece&#39;</span>, <span style="color:#ae81ff">0</span>);
+</span></span></code></pre></div><hr>
+<h2 id="data-models">Data Models</h2>
+<h3 id="manga-class">Manga Class</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Manga</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">String</span> mangaId;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">String</span> title;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">String</span> description;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> List<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">String</span><span style="color:#f92672">&gt;</span> authors;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> List<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">String</span><span style="color:#f92672">&gt;</span> artists;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> List<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">String</span><span style="color:#f92672">&gt;</span> tags;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">String</span> coverArtUrl;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">String</span> status;
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  Map<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">String</span>, <span style="color:#66d9ef">dynamic</span><span style="color:#f92672">&gt;</span> toMap() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#39;mangaId&#39;</span><span style="color:#f92672">:</span> mangaId,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#39;title&#39;</span><span style="color:#f92672">:</span> title,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#39;description&#39;</span><span style="color:#f92672">:</span> description,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#39;authors&#39;</span><span style="color:#f92672">:</span> jsonEncode(authors),  <span style="color:#75715e">// Stored as JSON string
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#e6db74">&#39;artists&#39;</span><span style="color:#f92672">:</span> jsonEncode(artists),  <span style="color:#75715e">// Stored as JSON string
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#e6db74">&#39;tags&#39;</span><span style="color:#f92672">:</span> jsonEncode(tags),        <span style="color:#75715e">// Stored as JSON string
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#e6db74">&#39;coverArtUrl&#39;</span><span style="color:#f92672">:</span> coverArtUrl,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#39;status&#39;</span><span style="color:#f92672">:</span> status,
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h2 id="error-handling">Error Handling</h2>
+<h3 id="database-operations">Database Operations</h3>
+<p>All database operations return <code>false</code> or throw exceptions on failure. Wrap calls in try-catch blocks:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">bool</span> success <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> DatabaseService.instance.exportDatabase();
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">catch</span> (e) {
+</span></span><span style="display:flex;"><span>  print(<span style="color:#e6db74">&#39;Error: </span><span style="color:#e6db74">$</span>e<span style="color:#e6db74">&#39;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="api-operations">API Operations</h3>
+<p>API calls throw <code>Exception</code> on HTTP failure:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> data <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> MangadexApiService().fetchMangaSeries(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">catch</span> (e) {
+</span></span><span style="display:flex;"><span>  print(<span style="color:#e6db74">&#39;API Error: </span><span style="color:#e6db74">$</span>e<span style="color:#e6db74">&#39;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
+<h2 id="usage-examples">Usage Examples</h2>
+<h3 id="complete-workflow-example">Complete Workflow Example</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#75715e">// Initialize API service
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">final</span> apiService <span style="color:#f92672">=</span> MangadexApiService();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">final</span> dbService <span style="color:#f92672">=</span> DatabaseService.instance;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Fetch manga series
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> response <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> apiService.fetchMangaSeries(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Check if manga is in library
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">bool</span> inLibrary <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> dbService.checkInLibrary(<span style="color:#e6db74">&#39;manga123&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Add to library if not present
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>inLibrary) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> manga <span style="color:#f92672">=</span> Manga(<span style="color:#75715e">/* ... */</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">await</span> dbService.insertManga(manga);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Get all library manga
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#66d9ef">library</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> dbService.queryAllMangas();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Export library
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">await</span> dbService.exportDatabase();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Import library
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">await</span> dbService.importDatabase();
+</span></span></code></pre></div><ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Movie App 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

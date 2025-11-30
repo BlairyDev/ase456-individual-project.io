@@ -4,9 +4,24 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>home | Movie App</title>
+    <title>Documentation | Movie App</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="📚 Manga Reader App — Architecture &amp; Feature Documentation
+This document describes the high-level architecture, feature behavior, data flow, and API usage for the Manga Reader App, built with Flutter and powered by the MangaDex API.
+It serves as a developer guide and reference for future maintenance and extension.
+
+🏛️ 1. System Overview
+The Manga Reader App is a Flutter-based mobile application that allows users to:
+
+Browse recent manga/manhwa/manhua series
+View detailed information about a selected series
+Read chapters (vertical or horizontal mode)
+Search for titles
+Save series locally in a library (SQLite)
+Manage app settings, theme, backup, and data export/import
+
+The backend data is retrieved via the MangaDex REST API.
+Local persistence uses SQLite (via sqflite package).">
     <meta name="generator" content="Hugo 0.148.2">
     
     
@@ -37,14 +52,30 @@
 
     <meta property="og:url" content="http://localhost:1313/documentation/home/">
   <meta property="og:site_name" content="Movie App">
-  <meta property="og:title" content="home">
+  <meta property="og:title" content="Documentation">
+  <meta property="og:description" content="📚 Manga Reader App — Architecture &amp; Feature Documentation This document describes the high-level architecture, feature behavior, data flow, and API usage for the Manga Reader App, built with Flutter and powered by the MangaDex API.
+It serves as a developer guide and reference for future maintenance and extension.
+🏛️ 1. System Overview The Manga Reader App is a Flutter-based mobile application that allows users to:
+Browse recent manga/manhwa/manhua series View detailed information about a selected series Read chapters (vertical or horizontal mode) Search for titles Save series locally in a library (SQLite) Manage app settings, theme, backup, and data export/import The backend data is retrieved via the MangaDex REST API.
+Local persistence uses SQLite (via sqflite package).">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="documentation">
 
-  <meta itemprop="name" content="home">
+  <meta itemprop="name" content="Documentation">
+  <meta itemprop="description" content="📚 Manga Reader App — Architecture &amp; Feature Documentation This document describes the high-level architecture, feature behavior, data flow, and API usage for the Manga Reader App, built with Flutter and powered by the MangaDex API.
+It serves as a developer guide and reference for future maintenance and extension.
+🏛️ 1. System Overview The Manga Reader App is a Flutter-based mobile application that allows users to:
+Browse recent manga/manhwa/manhua series View detailed information about a selected series Read chapters (vertical or horizontal mode) Search for titles Save series locally in a library (SQLite) Manage app settings, theme, backup, and data export/import The backend data is retrieved via the MangaDex REST API.
+Local persistence uses SQLite (via sqflite package).">
+  <meta itemprop="wordCount" content="196">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="home">
+  <meta name="twitter:title" content="Documentation">
+  <meta name="twitter:description" content="📚 Manga Reader App — Architecture &amp; Feature Documentation This document describes the high-level architecture, feature behavior, data flow, and API usage for the Manga Reader App, built with Flutter and powered by the MangaDex API.
+It serves as a developer guide and reference for future maintenance and extension.
+🏛️ 1. System Overview The Manga Reader App is a Flutter-based mobile application that allows users to:
+Browse recent manga/manhwa/manhua series View detailed information about a selected series Read chapters (vertical or horizontal mode) Search for titles Save series locally in a library (SQLite) Manage app settings, theme, backup, and data export/import The backend data is retrieved via the MangaDex REST API.
+Local persistence uses SQLite (via sqflite package).">
 
 	
   </head><body class="ma0 avenir bg-near-white development">
@@ -75,8 +106,8 @@
           </li>
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white white-90 no-underline" href="/documentation/home/" title="home page">
-              home
+            <a class="hover-white white-90 no-underline" href="/documentation/home/" title="Documentation page">
+              Documentation
             </a>
           </li>
           
@@ -109,7 +140,7 @@
           
         Documentations
       </aside><div id="sharing" class="mt3 ananke-socials"></div>
-<h1 class="f1 athelas mt3 mb1">home</h1>
+<h1 class="f1 athelas mt3 mb1">Documentation</h1>
       
       
       
@@ -117,7 +148,46 @@
       
       
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><ul class="pa0">
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="-manga-reader-app--architecture--feature-documentation">📚 Manga Reader App — Architecture &amp; Feature Documentation</h1>
+<p>This document describes the high-level architecture, feature behavior, data flow, and API usage for the <strong>Manga Reader App</strong>, built with <strong>Flutter</strong> and powered by the <strong>MangaDex API</strong>.<br>
+It serves as a developer guide and reference for future maintenance and extension.</p>
+<hr>
+<h1 id="-1-system-overview">🏛️ 1. System Overview</h1>
+<p>The Manga Reader App is a Flutter-based mobile application that allows users to:</p>
+<ul>
+<li>Browse recent manga/manhwa/manhua series</li>
+<li>View detailed information about a selected series</li>
+<li>Read chapters (vertical or horizontal mode)</li>
+<li>Search for titles</li>
+<li>Save series locally in a library (SQLite)</li>
+<li>Manage app settings, theme, backup, and data export/import</li>
+</ul>
+<p>The backend data is retrieved via the <strong>MangaDex REST API</strong>.<br>
+Local persistence uses <strong>SQLite</strong> (via <code>sqflite</code> package).</p>
+<hr>
+<h1 id="-2-architecture">🔧 2. Architecture</h1>
+<h2 id="21-app-layers">2.1 App Layers</h2>
+<p>Android/iOS &mdash;&gt;
+&lt;&mdash;     Mangadex API</p>
+<p>MVVM pattern</p>
+<h2 id="-project-structure-architecture">🗂️ Project Structure (Architecture)</h2>
+<p>This project follows <strong>MVVM</strong> (Model–View–ViewModel) with clean folder organization.</p>
+<pre tabindex="0"><code>lib/
+ ├── data/
+ │    ├── models/         # Manga.dart and etc.
+ |    ├──repositories/
+ │    └── services/       # API services
+ ├── view/
+ │    ├── home_screen.dart
+ │    ├── detail_screen.dart
+ │    ├── library_screen.dart
+ │    └── search_screen.dart
+ │    └── settings_screen.dart
+ │    └── chapter_screen.dart
+ ├── view_models/         # HomeViewModel, DetailViewModel, etc.
+ ├── di/           # GetIt Dependency Injection
+ └── main.dart
+</code></pre><ul class="pa0">
   
 </ul>
 <div class="mt6 instapaper_ignoref">

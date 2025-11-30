@@ -31,24 +31,26 @@
 
     
     
-      <link href="/user-manul/index.xml" rel="alternate" type="application/rss+xml" title="Movie App" />
-      <link href="/user-manul/index.xml" rel="feed" type="application/rss+xml" title="Movie App" />
+      <link href="/api-docs/index.xml" rel="alternate" type="application/rss+xml" title="Movie App" />
+      <link href="/api-docs/index.xml" rel="feed" type="application/rss+xml" title="Movie App" />
       
     
 
     
-      <link rel="canonical" href="http://localhost:1313/user-manul/">
+      <link rel="canonical" href="http://localhost:1313/api-docs/">
     
 
-    <meta property="og:url" content="http://localhost:1313/user-manul/">
+    <meta property="og:url" content="http://localhost:1313/api-docs/">
   <meta property="og:site_name" content="Movie App">
-  <meta property="og:title" content="User-Manuls">
+  <meta property="og:title" content="Api-Docs">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="website">
 
-  <meta itemprop="name" content="User-Manuls">
+  <meta itemprop="name" content="Api-Docs">
+  <meta itemprop="datePublished" content="2025-11-29T19:28:15-05:00">
+  <meta itemprop="dateModified" content="2025-11-29T19:28:15-05:00">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="User-Manuls">
+  <meta name="twitter:title" content="Api-Docs">
 
 	
   </head><body class="ma0 avenir bg-near-white development">
@@ -98,7 +100,7 @@
 
       <div class="tc-l pv3 ph3 ph4-ns">
         <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
-          User-Manuls
+          Api-Docs
         </h1>
         
       </div>
@@ -115,37 +117,94 @@
         <div class="w-100 w-30-l mb4 relative bg-white">
           <div class="w-100 mb4 nested-copy-line-height relative bg-white">
   <div class="mb3 pa4 gray overflow-hidden bg-white">
-    <span class="f6 db">User-Manuls</span>
+    <span class="f6 db">Api-Docs</span>
     <h1 class="f3 near-black">
-      <a href="/user-manul/user-manual/" class="link black dim">
-        User Manual
+      <a href="/api-docs/api-docs/" class="link black dim">
+        Api Docs
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      <h1 id="user-manual">User Manual</h1>
-<h1 id="manga-reader-app---user-manual">Manga Reader App - User Manual</h1>
+      <h1 id="manga-reader-api--database-documentation">Manga Reader API &amp; Database Documentation</h1>
 <h2 id="table-of-contents">Table of Contents</h2>
 <ol>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#getting-started">Getting Started</a></li>
-<li><a href="#features-overview">Features Overview</a></li>
-<li><a href="#how-to-use">How to Use</a>
-<ul>
-<li><a href="#browsing-recent-series">Browsing Recent Series</a></li>
-<li><a href="#viewing-series-details">Viewing Series Details</a></li>
-<li><a href="#reading-chapters">Reading Chapters</a></li>
-<li><a href="#searching-for-manga">Searching for Manga</a></li>
-<li><a href="#managing-your-library">Managing Your Library</a></li>
-</ul>
-</li>
-<li><a href="#troubleshooting">Troubleshooting</a></li>
-<li><a href="#faq">FAQ</a></li>
+<li><a href="#database-schema">Database Schema</a></li>
+<li><a href="#database-service-api">Database Service API</a></li>
+<li><a href="#mangadex-api-service">MangaDex API Service</a></li>
+<li><a href="#data-models">Data Models</a></li>
 </ol>
 <hr>
-<h2 id="introduction">Introduction</h2>
-<p>Welcome to <strong>Manga Reader App</strong>! This application allows you to discover, read, and manage your favorite manga, manhwa, and manhua series directly on your device. With access to thousands of titles through MangaDex, you can easily browse recent releases, search for specific series, and build your personal library.</p>
+<h2 id="database-schema">Database Schema</h2>
+<h3 id="manga-table">manga Table</h3>
+<p>Stores user&rsquo;s manga library collection.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Column</th>
+          <th>Type</th>
+          <th>Constraints</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>id</td>
+          <td>INTEGER</td>
+          <td>PRIMARY KEY AUTOINCREMENT</td>
+          <td>Auto-incrementing unique identifier</td>
+      </tr>
+      <tr>
+          <td>mangaId</td>
+          <td>TEXT</td>
+          <td>-</td>
+          <td>MangaDex manga identifier</td>
+      </tr>
+      <tr>
+          <td>title</td>
+          <td>TEXT</td>
+          <td>-</td>
+          <td>Manga title</td>
+      </tr>
+      <tr>
+          <td>description</td>
+          <td>TEXT</td>
+          <td>-</td>
+          <td>Manga description/synopsis</td>
+      </tr>
+      <tr>
+          <td>authors</td>
+          <td>TEXT</td>
+          <td>-</td>
+          <td>JSON-encoded list of author names</td>
+      </tr>
+      <tr>
+          <td>artists</td>
+          <td>TEXT</td>
+          <td>-</td>
+          <td>JSON-encoded list of artist names</td>
+      </tr>
+      <tr>
+          <td>tags</td>
+          <td>TEXT</td>
+          <td>-</td>
+          <td>JSON-encoded list of tags</td>
+      </tr>
+      <tr>
+          <td>coverArtUrl</td>
+          <td>TEXT</td>
+          <td>-</td>
+          <td>URL to cover art image</td>
+      </tr>
+      <tr>
+          <td>status</td>
+          <td>TEXT</td>
+          <td>-</td>
+          <td>Publication status (ongoing, completed, etc.)</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Note</strong>: <code>authors</code>, <code>artists</code>, and <code>tags</code> columns store JSON-encoded string arrays.</p>
     </div>
-    <a href="/user-manul/user-manual/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+    <a href="/api-docs/api-docs/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 </div>
 

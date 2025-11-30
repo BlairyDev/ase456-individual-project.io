@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "main.css",
-	"sourceRoot": "/home/blairasistin/flutter-projects/ase456-individual-project.io",
+	"sourceRoot": "/home/blairasistin/ase456-individual-project.io",
 	"sources": [
 		"ananke/css/main.css"
 	],
