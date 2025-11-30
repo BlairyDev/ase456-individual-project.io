@@ -46,7 +46,7 @@ Welcome to **Manga Reader App**! This application allows you to discover, read, 
 ### First Launch
 When you first open the app, you'll be greeted with the Home Page displaying a list of recently updated manga series.
 
-![App Launch Screen - Placeholder](images/home.jpeg)
+![App Launch Screen - Placeholder](https://blairydev.github.io/ase456-individual-project.io/images/home.jpeg)
 *[IMAGE: Screenshot of the app's home screen showing the list of recent manga series]*
 
 ---
@@ -81,7 +81,7 @@ The Home Page displays a curated list of recently updated manga series.
    - Cover art
    - Series title
 
-![Home Page with Recent Series - Placeholder](/images/home.jpeg)
+![Home Page with Recent Series - Placeholder](https://blairydev.github.io/ase456-individual-project.io/images/home.jpeg)
 *[IMAGE: Screenshot showing the scrollable list of manga series on the home page]*
 
 **Tip:** Pull down on the screen to refresh the list and see the latest updates!
