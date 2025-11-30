@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Api-Docs on Movie App</title>
+    <title>Api-Docs on MangaStack</title>
     <link>http://localhost:1313/api-docs/</link>
-    <description>Recent content in Api-Docs on Movie App</description>
+    <description>Recent content in Api-Docs on MangaStack</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 29 Nov 2025 19:28:15 -0500</lastBuildDate>
