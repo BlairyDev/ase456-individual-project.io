@@ -1,7 +1,7 @@
 +++
 date = '2025-11-29T19:28:15-05:00'
-draft = true
 title = 'Api Docs'
+menus = 'main'
 +++
 
 # Manga Reader API & Database Documentation
