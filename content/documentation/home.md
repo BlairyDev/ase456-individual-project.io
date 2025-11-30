@@ -3,6 +3,8 @@ menus = 'main'
 title = 'Documentation'
 +++
 
+Github Link: https://github.com/BlairyDev/manga-reader-app
+
 # 📚 Manga Reader App — Architecture & Feature Documentation
 
 This document describes the high-level architecture, feature behavior, data flow, and API usage for the **Manga Reader App**, built with **Flutter** and powered by the **MangaDex API**.  
@@ -58,4 +60,9 @@ lib/
 ```
 
 
+## Testing
+- Unit Testing 35/35
+- for the source code please visit this link: https://github.com/BlairyDev/manga-reader-app
+```bash
+flutter test
 
